@@ -22,9 +22,10 @@ class ofApp : public ofBaseApp{
     
     ofSpherePrimitive sphere;
     ofLight light;
-    ofTexture mTex;
+    ofTexture movTex, mapTex;
     ofEasyCam cam;
-    
+    ofPolyline walkPath;
     ofPlanePrimitive map;    
     ofVideoPlayer video; //Prerecorded video
+    int pathPct;
 };
