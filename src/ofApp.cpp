@@ -6,13 +6,13 @@ void ofApp::setup(){
     
     ofDisableAlphaBlending();
     ofEnableDepthTest();
-    // light.enable();
-    // light.setPosition(ofVec3f(100,100,200));
-    // light.lookAt(ofVec3f(0,0,-10));
+    //     light.enable();
+    //     light.setPosition(ofVec3f(100,100,-100));
+    //     light.lookAt(ofVec3f(0,0,-10));
     
     ofDisableArbTex();
     // ofLoadImage(movTex,"360colour.jpg");
-    sphere.setResolution(50);
+    sphere.setResolution(70);
     sphere.rotate(-90, 1, 0, 0);
     ofLoadImage(mapTex,"wanchai-map.png");
     video.load( "360movie.mp4" ); //Load the video file
@@ -34,7 +34,7 @@ void ofApp::setup(){
     walkPath.curveTo(-50, 0, 0);
     walkPath.curveTo(0, 10, 0);
     pathPct=1;
-  
+    
 }
 
 //--------------------------------------------------------------
@@ -53,7 +53,8 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+    
+    
     cam.begin();
     mapTex.bind();
     map.draw();
@@ -65,10 +66,16 @@ void ofApp::draw(){
     // glPointSize(8);
     
     ofVec3f pt = walkPath.getPointAtPercent(pathPct/4.0 / 100.0);
+
     sphere.setPosition(pt);
-    sphere.drawVertices();
-    sphere.drawWireframe();
+   // sphere.draw();
+    
+    
+   sphere.drawVertices();
+   sphere.drawWireframe();
     movTex.unbind();
+    //cam.lookAt(pt);
+
     cam.end();
     
 }
